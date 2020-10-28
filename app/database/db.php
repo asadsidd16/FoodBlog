@@ -9,6 +9,17 @@ function dd($value){ //for testing will delete
     die();
 }
 
+function executeQuery($sql, $data){
+
+    global $conn;
+    $stmt = $conn->prepare($sql);
+    $values = array_values($data);
+    $types = str_repeat('s', count($values));
+    $stmt->bind_param($types, ...$values);
+    $stmt->execute();
+    return $stmt;
+}
+
 function selectAll($table, $conditions = []){
     global $conn;
     $sql = "SELECT * FROM $table";
@@ -18,21 +29,67 @@ function selectAll($table, $conditions = []){
         $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
     } else {
-        //return records that match conditions
-        //$sql = "SELECT * FROM $table WHERE username='asad' AND admin=1";
-       
+        
         $i = 0;
         foreach ($conditions as $key => $value){
             if($i === 0){
-                $sql = $sql . " WHERE $key=$value";
+                $sql = $sql . " WHERE $key=?";
             } else{
-                $sql = $sql . " AND $key=$value";
+                $sql = $sql . " AND $key=?";
             }
             $i++;
         }
-        dd($sql);
-
+        
+        $stmt = executeQuery($sql, $conditions);
+        $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
     }
+
+}
+
+
+function selectOne($table, $conditions){
+    global $conn;
+    $sql = "SELECT * FROM $table";
+        
+    $i = 0;
+    foreach ($conditions as $key => $value){
+        if($i === 0){
+            $sql = $sql . " WHERE $key=?";
+        } else{
+            $sql = $sql . " AND $key=?";
+        }
+         $i++;
+    }
+        
+    $stmt = $conn->prepare($sql);
+    $values = array_values($conditions);
+    $types = str_repeat('s', count($values));
+    $stmt->bind_param($types, ...$values);
+    $stmt->execute();
+    $records = $stmt->get_result()->fetch_assoc();
+    return $records;
+
+}
+
+function create($table, $data){
+
+    global $conn;
+    $sql ="INSERT INTO users SET ";
+
+    $i = 0;
+    foreach ($data as $key => $value){
+        if($i === 0){
+            $sql = $sql . "  $key=?";
+        } else{
+            $sql = $sql . ",  $key=?";
+        }
+         $i++;
+    }
+    
+    $stmt = executeQuery($sql, $data);
+    $id = $stmt->insert_id;
+    return $id;
 
 }
 
@@ -41,5 +98,15 @@ $conditions = [
     'username' => 'asad'
 ];
 
-$users = selectAll('users', $conditions);
+// $data = [
+//     'username' => 'asad',
+//     'admin' => 1,
+//     'email' => 'asad@hotmail.com',
+//     'password' => '123'
+
+// ];
+
+
+//$users = selectOne('users', $conditions);
+$users = selectOne('users', $conditions);
 dd($users);
