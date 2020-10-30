@@ -1,4 +1,8 @@
-<?php include("path.php") ?>
+<?php
+include("path.php");
+include(ROOT_PATH . "/app/database/db.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +108,7 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                              Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
                         </p>
-                        <a href="single.html" class="btn read-more">Read More</a>
+                        <a href="single.php" class="btn read-more">Read More</a>
                     </div>
                 </div>
                 <div class="post">
@@ -120,24 +124,7 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                              Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
                         </p>
-                        <a href="single.html" class="btn read-more">Read More</a>
-                    </div>
-                </div>
-
-                <div class="post">
-
-                    <img src="assets/images/image11.jpg" alt="" class="post-image">
-                    <div class="post-preview">
-
-                        <h2> <a href="single.html"> The strongest and sweetest</a></h2>
-                        <i class="far fa-user"> Asad Siddiqui </i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Oct 25, 2020</i>
-                        <p class="preview-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
-                        </p>
-                        <a href="single.html" class="btn read-more">Read More</a>
+                        <a href="single.php" class="btn read-more">Read More</a>
                     </div>
                 </div>
 
@@ -154,7 +141,24 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                              Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
                         </p>
-                        <a href="single.html" class="btn read-more">Read More</a>
+                        <a href="single.php" class="btn read-more">Read More</a>
+                    </div>
+                </div>
+
+                <div class="post">
+
+                    <img src="assets/images/image11.jpg" alt="" class="post-image">
+                    <div class="post-preview">
+
+                        <h2> <a href="single.html"> The strongest and sweetest</a></h2>
+                        <i class="far fa-user"> Asad Siddiqui </i>
+                        &nbsp;
+                        <i class="far fa-calendar"> Oct 25, 2020</i>
+                        <p class="preview-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
+                        </p>
+                        <a href="single.php" class="btn read-more">Read More</a>
                     </div>
                 </div>
 
