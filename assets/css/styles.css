@@ -6,7 +6,7 @@ body{
     padding: 0px;
     margin: 0px;
     background: #f6f6f6 ;
-    font-family: 'Candal';
+    font-family: 'Hind', sans-serif;
 }
 
 a{
@@ -89,6 +89,7 @@ header ul{
     margin: 0px;
     padding: 0px;
     list-style: none;
+    
 }
 
 header ul li{

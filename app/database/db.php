@@ -87,6 +87,9 @@ function create($table, $data){
         }
          $i++;
     }
+
+
+    //dd($data);
     
     $stmt = executeQuery($sql, $data);
     $id = $stmt->insert_id;
