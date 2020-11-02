@@ -37,7 +37,6 @@
             <div class="admin-content">
                 <div class="button-group">
                     <a href="create.php" class="btn btn-big">Add Post</a>
-                    <a href="index.php" class="btn btn-big">Manage Post</a>
                 </div>
 
                 <div class="content">
@@ -58,14 +57,14 @@
                                 <tr>
                                 <td><?php echo $key + 1; ?></td>
                                 <td><?php echo $post['title'] ?></td>
-                                <td>JJ</td>
+                                <td>Asad Siddiqui</td>
                                 <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">Edit</a></td>
                                 <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">Delete</a></td>
 
-                                <?php if ( $post['published'] ) : ?>
-                                    <td><a href="#" class="unpublish">Unpublish</a></td>
+                                <?php if ( $post['published']): ?>
+                                    <td><a href="edit.php?published=0&p_id=<?php echo $post['id']?>" class="unpublish">Unpublish</a></td>
                                 <?php else: ?>
-                                    <td><a href="#" class="publish">Publish</a></td>
+                                    <td><a href="edit.php?published=1&p_id=<?php echo $post['id']?>" class="publish">Publish</a></td>
                                 <?php endif; ?>
                                 
                                 

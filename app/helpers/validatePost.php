@@ -11,12 +11,16 @@ function validatePost($post){
         array_push($errors, 'body is required');
     }
 
-   
 
+    $existingPost = selectOne('posts', ['title' => $post['title']]);
+    if(isset($existingPost)){
+        if(isset($post['update-post']) && $existingPost['id'] != $post['id']){
+            array_push($errors, 'Post with title already exists');
+        }
 
-    $existingUser= selectOne('posts', ['title' => $post['title']]);
-    if(isset($existingUser)){
-        array_push($errors, 'Post with title already exists');
+        if(isset($post['add-post'])){
+            array_push($errors, 'Post with that title already exists ');
+        }
     }
     return $errors;
 }

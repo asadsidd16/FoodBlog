@@ -2,6 +2,8 @@
 include("path.php");
 include(ROOT_PATH . "/app/database/db.php");
 
+$posts = getPublishedPosts();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,56 +39,20 @@ include(ROOT_PATH . "/app/database/db.php");
 
                 <div class="post-wrapper">
 
+
+                <?php foreach ($posts as $post): ?>
+
                     <div class="post">
-                        <img src="assets/images/image11.jpg" alt="" class="slider-image">
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
                         <div class="post-info">
-                            <h4><a href="single.html"> One day life will flash before your eyes</a></h4>
-                            <i class="far fa-user"> Asad Siddiqui</i>
+                            <h4><a href="single.html"> <?php echo $post['title']; ?> </a></h4>
+                            <i class="far fa-user"> <?php echo $post['username']; ?></i>
                             &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
+                            <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                         </div>
                     </div>
 
-                    <div class="post">
-                        <img src="assets/images/image11.jpg" alt="" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html"> One day life will flash before your eyes</a></h4>
-                            <i class="far fa-user"> Asad Siddiqui</i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <img src="assets/images/image11.jpg" alt="" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html"> One day life will flash before your eyes</a></h4>
-                            <i class="far fa-user"> Asad Siddiqui</i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <img src="assets/images/image11.jpg" alt="" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html"> One day life will flash before your eyes</a></h4>
-                            <i class="far fa-user"> Asad Siddiqui</i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <img src="assets/images/image11.jpg" alt="" class="slider-image">
-                        <div class="post-info">
-                            <h4><a href="single.html"> One day life will flash before your eyes</a></h4>
-                            <i class="far fa-user"> Asad Siddiqui</i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                        </div>
-                    </div>
-
+                <?php endforeach; ?>
 
                 </div>
             </div>
@@ -97,73 +63,21 @@ include(ROOT_PATH . "/app/database/db.php");
                 <div class="main-content">
                     <h1 class="recent-post-title"> Recent Posts</h1>
 
-                    <div class="post">
-
-                        <img src="assets/images/image11.jpg" alt="" class="post-image">
+                    <?php foreach ($posts as $post): ?>
+                        <div class="post clearfix">
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
                         <div class="post-preview">
-
-                            <h2> <a href="single.html"> The strongest and sweetest</a></h2>
-                            <i class="far fa-user"> Asad Siddiqui </i>
+                            <h2> <a href="single.html"> <?php echo $post['title']; ?></a></h2>
+                            <i class="far fa-user">  <?php echo $post['username']; ?></i>
                             &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
+                            <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                             <p class="preview-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
+                                <?php echo html_entity_decode(substr($post['body'], 0, 150) . '...'); ?>
                             </p>
                             <a href="single.php" class="btn read-more">Read More</a>
                         </div>
                     </div>
-                    <div class="post">
-
-                        <img src="assets/images/image11.jpg" alt="" class="post-image">
-                        <div class="post-preview">
-
-                            <h2> <a href="single.html"> The strongest and sweetest</a></h2>
-                            <i class="far fa-user"> Asad Siddiqui </i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                            <p class="preview-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
-                            </p>
-                            <a href="single.php" class="btn read-more">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="post">
-
-                        <img src="assets/images/image11.jpg" alt="" class="post-image">
-                        <div class="post-preview">
-
-                            <h2> <a href="single.html"> The strongest and sweetest</a></h2>
-                            <i class="far fa-user"> Asad Siddiqui </i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                            <p class="preview-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
-                            </p>
-                            <a href="single.php" class="btn read-more">Read More</a>
-                        </div>
-                    </div>
-
-                    <div class="post">
-
-                        <img src="assets/images/image11.jpg" alt="" class="post-image">
-                        <div class="post-preview">
-
-                            <h2> <a href="single.html"> The strongest and sweetest</a></h2>
-                            <i class="far fa-user"> Asad Siddiqui </i>
-                            &nbsp;
-                            <i class="far fa-calendar"> Oct 25, 2020</i>
-                            <p class="preview-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Exercitationem eligendi suscipit dicta fugiat maxime ipsa enim expedita excepturi asperiores atque totam perspiciatis deleniti, perferendis unde laudantium placeat laborum velit sequi.
-                            </p>
-                            <a href="single.php" class="btn read-more">Read More</a>
-                        </div>
-                    </div>
-
+                    <?php endforeach; ?>
 
                 </div>
 
