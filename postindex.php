@@ -1,5 +1,10 @@
-<?php include("path.php") ?>
-<?php include(ROOT_PATH . "/app/controllers/posts.php")?>
+<?php include("path.php"); 
+include(ROOT_PATH . "/app/database/db.php");
+
+$posts = getPublishedPosts();
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,7 +62,7 @@
                                 <tr>
                                 <td><?php echo $key + 1; ?></td>
                                 <td><?php echo $post['title'] ?></td>
-                                <td>Asad Siddiqui</td>
+                                <td><?php echo $post['username'] ?></td>
                                 <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">Edit</a></td>
                                 <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">Delete</a></td>
 
