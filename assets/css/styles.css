@@ -14,6 +14,22 @@ a{
     color: inherit;
 }
 
+.page-wrapper {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px 50px;
+}
+
+.post-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.post-content{
+    padding: 20px 50px;
+}
 .clearfix::after{
     content: '';
     display: block;
@@ -185,8 +201,6 @@ header .menu-toggle{
     overflow: hidden;
     padding: 10px 0px 10px 0px;
    
-
-
 }
 
 .post-slider .post-wrapper .post{
@@ -202,7 +216,6 @@ header .menu-toggle{
 .post-slider .post-wrapper .post .post-info{
     height: 130px;
     padding: 0px 5px;
-
 
 }
 

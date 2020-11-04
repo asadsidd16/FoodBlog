@@ -1,4 +1,11 @@
-<?php include("path.php"); ?>
+<?php include("path.php");?>
+<?php include(ROOT_PATH . "/app/controllers/posts.php");
+
+if(isset($_GET['id'])){
+    $post = selectOne('posts',['id'=> $_GET['id']]);
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +23,7 @@
 
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Single Post</title>
+    <title><?php echo $post['title']; ?> | FoodWars </title>
 </head>
 <body>
      <!-- header -->
@@ -29,16 +36,14 @@
         <div class="content clearfix">
 
             <div class="main-content single">
-            <h1 class="post-title"> This is the title of the post</h1>    
+            <h1 class="post-title"> <?php echo $post['title']; ?> </h1>    
             
             <div class="post-content">
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Nostrum explicabo obcaecati exercitationem.
-                    Enim facilis unde illo, error repellendus esse sed ratione at excepturi quis reiciendis perspiciatis quo iusto dignissimos est!</p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Nostrum explicabo obcaecati exercitationem.
-                        Enim facilis unde illo, error repellendus esse sed ratione at excepturi quis reiciendis perspiciatis quo iusto dignissimos est!</p>
-    
+               <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-img" width="300" height="300">
+               &nbsp;
+               <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
+               &nbsp;
+               <?php echo html_entity_decode($post['body']); ?>
             </div>
         </div>
 
