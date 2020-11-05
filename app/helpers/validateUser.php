@@ -15,9 +15,6 @@ function validateUser($user){
         array_push($errors, 'password is required');
     }
 
-    // if(empty($user['passwordConf'])){
-    //     array_push($errors, 'password is required');
-    // }
 
     if($user['passwordConf'] !== $user['password']){
         array_push($errors, 'password do not match');

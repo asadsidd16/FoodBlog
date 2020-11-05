@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
             <h1 class="post-title"> <?php echo $post['title']; ?> </h1>    
             
             <div class="post-content">
-               <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-img" width="300" height="300">
+               <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-img" width="350" height="350">
                &nbsp;
                <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                &nbsp;
